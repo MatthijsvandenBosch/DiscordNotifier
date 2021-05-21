@@ -16,7 +16,7 @@ public interface DiscordNotifierConfig extends Config
 
 	@ConfigItem(
 			keyName = "mention",
-			name = "Discord Mention User ID Number",
+			name = "Discord Mention User Identifier",
 			description = (
 					"Mentioned user in all Discord messages. " +
 					"Send `\\@username` in a Discord message and set this field to the returned number."
