@@ -39,10 +39,18 @@ public class DiscordNotifier extends Plugin
 	 *
 	 * @param message The message to be sent
 	 */
-	private void sendDiscordMessage(String message) {
-		if(config.webhook().trim().isEmpty()){
+	private void sendDiscordMessage(String message)
+	{
+		if(config.webhook().trim().isEmpty())
+		{
 			log.warn("Missing Discord webhook. Cannot send message.");
 			return;
+		}
+
+		// https://discord.com/developers/docs/resources/channel#allowed-mentions-object
+		if (!config.mention().trim().isEmpty())
+		{
+			message = "<@" + config.mention().trim() + "> " + message;
 		}
 
 		DiscordWebhookBody discordWebhookBody = new DiscordWebhookBody();

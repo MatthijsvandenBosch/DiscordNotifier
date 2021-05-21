@@ -13,4 +13,14 @@ public interface DiscordNotifierConfig extends Config
 			description = "The webhook used to send messages to Discord."
 	)
 	default String webhook() { return ""; }
+
+	@ConfigItem(
+			keyName = "mention",
+			name = "Discord Mention User ID Number",
+			description = (
+					"Mentioned user in all Discord messages. " +
+					"Send `\\@username` in a Discord message and set this field to the returned number."
+			)
+	)
+	default String mention() { return ""; }
 }
